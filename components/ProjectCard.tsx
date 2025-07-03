@@ -105,7 +105,7 @@ const ProjectCard = memo(function ProjectCard({ project }: Readonly<Props>): JSX
               asChild
               variant="outline"
               size="sm"
-              className={cn('flex items-center gap-2 group-hover:text-white')}
+              className={cn('flex items-center gap-2')}
               aria-label={`See '${project.title}' on Github`}
             >
               <a
