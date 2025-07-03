@@ -4,6 +4,7 @@ import { Jost } from "next/font/google"
 import { ThemeProvider } from "@/providers/ThemeProvider"
 import Loader from "@/components/Loader"
 import Header from "@/components/layouts/header"
+import ChatPanel from "@/components/ChatPanel"
 import "./globals.css"
 
 const jost = Jost({ subsets: ["latin"] })
@@ -54,6 +55,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
+          <ChatPanel />
           {children}
         </ThemeProvider>
       </body>
