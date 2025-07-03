@@ -168,7 +168,7 @@ export default function AboutSection() {
               <div className="flex gap-4 flex-col items-start">
                 {/* Bachelor's Degree */}
                 <div className="flex gap-2 flex-col items-start">
-                  <div className="text-accentColor font-semibold text-xl">Bachelor's Degree</div>
+                  <div className="text-accentColor font-semibold text-xl">Bachelor&apos;s Degree</div>
                   <div className="overflow-hidden">
                     <div className="dark:text-white text-animation">
                       <div>Institution: Greenwood University</div>
@@ -194,7 +194,7 @@ export default function AboutSection() {
 
                 {/* Master's Degree */}
                 <div className="flex gap-2 flex-col items-start">
-                  <div className="text-accentColor font-semibold text-xl">Master's Degree</div>
+                  <div className="text-accentColor font-semibold text-xl">Master&apos;s Degree</div>
                   <div className="overflow-hidden">
                     <div className="dark:text-white text-animation">
                       <div>Institution: Horizon Institute</div>

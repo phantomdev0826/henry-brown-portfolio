@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const ChatPanel = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hi! I am Henry Brown's AI assistant. Ask me anything about Henry!" },
+    { sender: 'ai', text: "Hi! I am Henry Brown&apos;s AI assistant. Ask me anything about Henry!" },
   ]);
   const [input, setInput] = useState('');
   const panelRef = useRef<HTMLDivElement>(null);
