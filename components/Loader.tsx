@@ -29,8 +29,7 @@ const Loader = () => {
 
   const [count, setCount] = useState(1990)
   const [intervalDelay, setIntervalDelay] = useState(100); // initial delay
-  const intervalRef = useRef();
-
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
     // Clear previous interval if any
     if (intervalRef.current) {
@@ -41,7 +40,9 @@ const Loader = () => {
     intervalRef.current = setInterval(() => {
       setCount(prevCount => {
         if (prevCount > 2024) {
-          clearInterval(intervalRef.current);
+          if (intervalRef.current !== null) {
+            clearInterval(intervalRef.current);
+          }
           return prevCount;
         }
         if (prevCount > 2010 && intervalDelay !== 20) {
@@ -54,7 +55,12 @@ const Loader = () => {
     }, intervalDelay);
 
     // Cleanup on unmount or delay change
-    return () => clearInterval(intervalRef.current);
+    return () => {
+      
+      if (intervalRef.current !== null) {
+        clearInterval(intervalRef.current);
+      }
+    }
   }, [intervalDelay]);
 
   return (
