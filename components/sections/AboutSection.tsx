@@ -203,7 +203,7 @@ export default function AboutSection() {
                   <span className="experience-count">0</span>{" "}
                   <span className="text-accentColor">+</span>
                 </div>
-                <div className="dark:text-white text-sm">Years of Experience</div>
+                <div className="dark:text-white text-sm text-center">Years of Experience</div>
               </div>
 
               {/* Projects Completed */}
@@ -212,7 +212,7 @@ export default function AboutSection() {
                   <span className="project-count">0</span>{" "}
                   <span className="text-accentColor">+</span>
                 </div>
-                <div className="dark:text-white text-sm">Projects Completed</div>
+                <div className="dark:text-white text-sm text-center">Projects Completed</div>
               </div>
 
               {/* Contributions */}
@@ -221,7 +221,7 @@ export default function AboutSection() {
                   <span className="user-count">0</span>{" "}
                   <span className="text-accentColor">+</span>
                 </div>
-                <div className="dark:text-white text-sm">Significant Contributions</div>
+                <div className="dark:text-white text-sm text-center">Significant Contributions</div>
               </div>
             </div>
           </div>
