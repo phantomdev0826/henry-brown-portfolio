@@ -63,14 +63,14 @@ export default function ContactSection() {
             </div>
           </div>
           <div className="overflow-hidden">
-            <div className="title-animation text-5xl navlink text-accentColor">
+            <div className="text-center title-animation text-5xl navlink text-accentColor">
               Contact me!
             </div>
           </div>
         </div>
 
         <div className="flex flex-col gap-8 items-center">
-          <div className="flex items-center gap-4">
+          <div className=" text-center flex items-center gap-4">
             <Link
               href="https://www.linkedin.com/in/tylerrflowers/"
               target="_blank"
