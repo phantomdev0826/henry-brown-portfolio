@@ -124,7 +124,7 @@ export default function SkillsSection() {
 
       {/* Skills Grid */}
       
-      <div className="grid pt-40 grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4 skills-grid">
+      <div className="grid break-words pt-40 grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4 skills-grid">
         {skills.map((skill) => (
           <div
             key={skill.name}
