@@ -28,11 +28,7 @@ const DrawerOverlay = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
 >(({ ...props }, ref) => (
-  <DrawerPrimitive.Overlay
-    ref={ref}
-    className={cn('fixed inset-0 z-50 bg-black/80')}
-    {...props}
-  />
+  <DrawerPrimitive.Overlay ref={ref} className={cn('fixed inset-0 z-50 bg-black/80')} {...props} />
 ));
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
@@ -74,7 +70,7 @@ DrawerHeader.displayName = 'DrawerHeader';
  * Footer section for actions or secondary content, aligned at the bottom.
  */
 const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('mt-auto flex flex-col gap-2 p-4')} {...props} />
+  <div className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />
 );
 DrawerFooter.displayName = 'DrawerFooter';
 

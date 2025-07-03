@@ -7,62 +7,10 @@ import useScrollActive from '@/hooks/useScrollActive';
 import { useSectionStore } from '@/store/section';
 import { RoughNotation } from 'react-rough-notation';
 import useOnScreen from '@/hooks/useOnScreen';
+import { skills } from '@/data/skills';
+import type { Skill } from '@/types/skill';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const skills = [
-  {
-    name: 'JavaScript',
-    icon: '/assets/skills/javascript-programming-language-icon.svg',
-    level: 90,
-    description: 'A versatile programming language used for dynamic web development and scripting.',
-  },
-  {
-    name: 'React',
-    icon: '/assets/skills/react-js-icon.svg',
-    level: 85,
-    description:
-      'A popular JavaScript library for building user interfaces with component-based architecture.',
-  },
-  // Add Angular
-  {
-    name: 'Angular',
-    icon: '/assets/skills/angular-icon.svg',
-    level: 80,
-    description: 'A TypeScript-based open-source web application framework led by Google.',
-  },
-  {
-    name: 'Next.js',
-    icon: '/assets/skills/nextjs-icon.svg',
-    level: 80,
-    description:
-      'A React framework for server-side rendering and static site generation, enhancing performance.',
-  },
-  {
-    name: 'CSS3',
-    icon: '/assets/skills/bootstrap-4-icon.svg',
-    level: 90,
-    description: 'Styling language for designing responsive and visually appealing web pages.',
-  },
-  {
-    name: 'Tailwind CSS',
-    icon: '/assets/skills/tailwind-css-icon.svg',
-    level: 85,
-    description: 'A utility-first CSS framework for rapid UI development with customizable design.',
-  },
-  {
-    name: 'Node.js',
-    icon: '/assets/skills/node-js-icon.svg',
-    level: 75,
-    description: 'JavaScript runtime environment for building scalable backend applications.',
-  },
-  {
-    name: 'TypeScript',
-    icon: '/assets/skills/typescript-programming-language-icon.svg',
-    level: 80,
-    description: 'A typed superset of JavaScript that adds static types for better code quality.',
-  },
-];
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
@@ -127,9 +75,9 @@ export default function SkillsSection() {
       </div>
 
       {/* Skills Grid */}
-      
+
       <div className="grid break-words pt-40 grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4 skills-grid">
-        {skills.map((skill) => (
+        {skills.map((skill: Skill) => (
           <div
             key={skill.name}
             className="bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20 p-6 rounded-lg shadow hover:scale-105 transition-transform duration-300 hover:bg-opacity-20 skill-card"

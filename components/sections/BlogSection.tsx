@@ -3,17 +3,15 @@
 import { useEffect, useRef } from 'react';
 import useOnScreen from '@/hooks/useOnScreen';
 import useScrollActive from '@/hooks/useScrollActive';
-import ComingSoon1 from '@/public/assets/blog/coming-soon-1.jpg';
-import ComingSoon2 from '@/public/assets/blog/coming-soon-2.jpg';
-import SpaceCat from '@/public/assets/blog/space-cat.webp';
+import { blogs } from '@/data/blogs';
+import type { Blog } from '@/types/blog';
 import { useSectionStore } from '@/store/section';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { ArrowRight } from 'iconsax-react';
-import { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { RoughNotation } from 'react-rough-notation';
-import BlogCard from '../BlogCard';
+import BlogCard from './blog/BlogCard';
 
 export default function BlogSection() {
   gsap.registerPlugin(ScrollTrigger);
@@ -73,8 +71,8 @@ export default function BlogSection() {
         </div>
 
         <div className="md:w-full pt-4 pb-10 flex flex-col items-start gap-6">
-          {blogs.map((blog) => (
-            <BlogCard key={blog.id} item={blog} />
+          {blogs.map((blog: Blog) => (
+            <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
 
@@ -92,42 +90,3 @@ export default function BlogSection() {
     </section>
   );
 }
-
-export interface Blog {
-  id: number;
-  title: string;
-  description: string;
-  image: StaticImageData;
-  publishAt: string;
-  link: string;
-}
-
-const blogs: Blog[] = [
-  {
-    id: 1,
-    title: 'The Mystery of React Children Re-rendering',
-    description:
-      'Component rendering is important for the overall performance of the app. So, although it seems simple, I want to share the complex children render logic.',
-    image: SpaceCat,
-    publishAt: '2024, March 10',
-    link: 'https://medium.com/@shinthantequi/the-mystery-of-react-children-re-rendering-3544a68944f4',
-  },
-  {
-    id: 2,
-    title: 'Testing 1',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae similique sequi ex quisquam ullam corrupti neque dolores ad provident magnam?',
-    image: ComingSoon1,
-    publishAt: '2022, March 10',
-    link: '',
-  },
-  {
-    id: 3,
-    title: 'Testing 2',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae similique sequi ex quisquam ullam corrupti neque dolores ad provident magnam?',
-    image: ComingSoon2,
-    publishAt: '2024, January 15',
-    link: '',
-  },
-];
