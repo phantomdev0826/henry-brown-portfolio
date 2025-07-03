@@ -12,6 +12,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Image from "next/image"
 import SplitType from "split-type"
+import clsx from '../ui/clsx'
 
 export default function AboutSection() {
   gsap.registerPlugin(ScrollTrigger);
@@ -100,7 +101,11 @@ export default function AboutSection() {
     >
       <div className="w-full max-w-[1100px] h-full m-auto flex flex-col items-center gap-24">
         {/* Section Title */}
-        <div className="relative title text-xl md:text-4xl tracking-tight font-medium w-fit dark:text-white">
+        <div className={clsx(
+          'relative title tracking-tight font-medium w-fit',
+          'text-xl md:text-4xl',
+          'dark:text-white'
+        )}>
           <span className="font-semibold">
             Simplicity is the essence of efficiency.
           </span>
@@ -161,7 +166,7 @@ export default function AboutSection() {
               <div className="flex gap-4 flex-col items-start">
                 {/* Bachelor's Degree */}
                 <div className="flex gap-2 flex-col items-start">
-                  <div className="text-accentColor font-semibold text-xl">Bachelor’s Degree</div>
+                  <div className="text-accentColor font-semibold text-xl">Bachelor's Degree</div>
                   <div className="overflow-hidden">
                     <div className="dark:text-white text-animation">
                       <div>Institution: Greenwood University</div>
@@ -178,7 +183,7 @@ export default function AboutSection() {
 
                 {/* Master's Degree */}
                 <div className="flex gap-2 flex-col items-start">
-                  <div className="text-accentColor font-semibold text-xl">Master’s Degree</div>
+                  <div className="text-accentColor font-semibold text-xl">Master's Degree</div>
                   <div className="overflow-hidden">
                     <div className="dark:text-white text-animation">
                       <div>Institution: Horizon Institute</div>
@@ -600,3 +605,13 @@ const TechStack = () => {
     </div>
   )
 }
+
+export { default as AboutSection } from './AboutSection';
+export { default as BlogSection } from './BlogSection';
+export { default as ContactSection } from './ContactSection';
+export { default as HeroSection } from './HeroSection';
+export { default as HeroContent } from './HeroContent';
+export { default as HeroTool } from './HeroTool';
+export { default as MouseSection } from './MouseSection';
+export { default as ProjectSection } from './ProjectSection';
+export { default as SkillsSection } from './SkillsSection';

@@ -1,72 +1,60 @@
 # Henry Brown Portfolio
 
-![HenryBrown-portfolio](https://i.ibb.co/m5bYtw6/responsive-showcase.png)
-
-![ts](https://badgen.net/badge/Built%20With/TypeScript/blue)
-
-My portfolio website developed with Next.JS(SSG) and TypeScript. Tailwind CSS and GSAP is used for styling and animations. Light & Dark themes supported. Dark is first priotic.
+A modern, developer-focused portfolio built with Next.js, TypeScript, Tailwind CSS, and OpenAI-powered AI chat.
 
 ## Features
+- Responsive, accessible, and beautiful UI
+- AI chat panel powered by OpenAI
+- Modular, reusable components
+- Dark mode support
 
-- Responsive Design 📱💻
-- Light & Dark themes ☀️🌙
-- Fully Accessible ♿️
-- SEO Friendly 🔎
+## Getting Started
 
-## Tech Stack
-
-**Frontend** - [NextJS](https://nextjs.org/), [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/)  
-**Styling** - [Tailwind CSS](https://tailwindcss.com/)  
-**Animations** - [GSAP](https://greenstock.com/)  
-**Design & Prototype** - [Figma](https://figma.com/)  
-**State Management** - [Zustand](https://zustand-demo.pmnd.rs/)  
-**Deployment** - [Vercel](https://vercel.com/)
-
-## Lighthouse Score
-
-<a href="https://pagespeed.web.dev/analysis/https-phantomdev0826-vercel-app/sgswm7q59t?form_factor=desktop">
-<img width="630" height="200px" alt="Henry Brown Portfolio Website Lighthouse Score" src="public/lighthouse.svg">
-<a>
-
-## Running Locally
-
-Clone the project
-
+### 1. Clone the repository
 ```bash
-git clone https://github.com/phantomdev0826/dev_portpolio.git
+git clone <your-repo-url>
+cd henry-brown-portfolio
 ```
 
-Go to the project directory
-
-```bash
-cd dev_portpolio
-```
-
-Remove remote origin
-
-```bash
-git remote remove origin
-```
-
-Install dependencies
-
+### 2. Install dependencies
 ```bash
 npm install
+# or
+yarn install
+# or
+pnpm install
 ```
 
-Start the server
+### 3. Set up environment variables
+Copy `.env.example` to `.env.local` and fill in your OpenAI API key:
+```bash
+cp .env.example .env.local
+```
 
+### 4. Run the development server
 ```bash
 npm run dev
 ```
+Visit [http://localhost:3000](http://localhost:3000) to view the site.
 
-## Inspiration and Credits
+## Linting & Formatting
+- Run `npm run lint` to check for lint errors.
+- Run `npm run format` to auto-format code with Prettier.
+- Pre-commit hooks will auto-lint and format staged files.
 
-Here are some inspiration and credits for the design of my portfolio. However I can guarantee that I wrote 100% of the code. These credits are just for ideas and design for my portfolio website.
+## Testing
+- (Add tests in `__tests__` or alongside components)
+- Recommended: [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/)
 
-- [Sat Naing Porfolio](https://satnaing.dev/)
-- [Flowtrix](https://www.flowtrix.co/)
+## Deployment
+- Deploy to [Vercel](https://vercel.com/) for best results.
+- Set your `OPENAI_API_KEY` in the Vercel dashboard under Project Settings > Environment Variables.
 
-## Author
+## Contributing
+1. Fork the repo
+2. Create a new branch (`git checkout -b feature/your-feature`)
+3. Commit your changes
+4. Push to your fork and open a Pull Request
 
-- [@HenryBrown](https://phantomdev0826.vercel.app/)
+## License
+MIT
