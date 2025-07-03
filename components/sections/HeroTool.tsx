@@ -1,15 +1,15 @@
-import { useEffect, useRef } from "react"
-import Code from "@/public/assets/hero/code.png"
-import HeroSpinner from "@/public/assets/hero/hero-spinner.webp"
-import Source from "@/public/assets/hero/source.png"
-import heroLottieData from "@/public/assets/lottie/hero-lottie.json"
-import { gsap } from "gsap"
-import Lottie from "lottie-react"
-import Image from "next/image"
+import { useEffect, useRef } from 'react';
+import Code from '@/public/assets/hero/code.png';
+import HeroSpinner from '@/public/assets/hero/hero-spinner.webp';
+import Source from '@/public/assets/hero/source.png';
+import heroLottieData from '@/public/assets/lottie/hero-lottie.json';
+import { gsap } from 'gsap';
+import Lottie from 'lottie-react';
+import Image from 'next/image';
 
 export default function HeroTool() {
-  const firstSpinnerRef = useRef(null)
-  const secondSpinnerRef = useRef(null)
+  const firstSpinnerRef = useRef(null);
+  const secondSpinnerRef = useRef(null);
 
   useEffect(() => {
     if (firstSpinnerRef.current && secondSpinnerRef.current) {
@@ -17,15 +17,15 @@ export default function HeroTool() {
         rotation: 70,
         duration: 30,
         repeat: -1,
-      })
+      });
 
       gsap.to([secondSpinnerRef.current], {
         rotation: 70,
         duration: 30,
         repeat: -1,
-      })
+      });
     }
-  }, [])
+  }, []);
 
   return (
     <div className="max-w-[75rem] min-h-[5rem] m-auto w-full absolute top-[55%] md:gap-40 xl:gap-0 md:top-[50%] md:-translate-y-1/2 left-0 right-0 flex items-center justify-between">
@@ -60,5 +60,5 @@ export default function HeroTool() {
       </div>
       {/* Circle */}
     </div>
-  )
+  );
 }

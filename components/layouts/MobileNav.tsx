@@ -1,18 +1,18 @@
-import { useState } from "react"
-import navLinks from "@/lib/navConfig"
-import { HambergerMenu } from "iconsax-react"
-import { useRouter } from "next/navigation"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Button } from "../ui/button"
+import { useState } from 'react';
+import navLinks from '@/lib/navConfig';
+import { HambergerMenu } from 'iconsax-react';
+import { useRouter } from 'next/navigation';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Button } from '../ui/button';
 
 export default function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false)
-  const router = useRouter()
+  const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const handleNavigation = (href: string) => {
-    router.push(href)
-    setIsOpen(false)
-  }
+    router.push(href);
+    setIsOpen(false);
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -43,5 +43,5 @@ export default function MobileNav() {
         </div>
       </SheetContent>
     </Sheet>
-  )
+  );
 }

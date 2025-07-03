@@ -1,28 +1,28 @@
-"use client"
+'use client';
 
-import { useEffect, useRef, useState } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import Image from "next/image"
-import { Project } from "./sections/ProjectSection"
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
+import { Project } from './sections/ProjectSection';
 
 interface Props {
-  item: Project
+  item: Project;
 }
 
 export default function ProjectCard({ item }: Props) {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [starCount, setStarCount] = useState<number>(0)
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [starCount, setStarCount] = useState<number>(0);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cardRef.current,
         start: `70% bottom`,
       },
-    })
+    });
 
     tl.fromTo(
       cardRef.current,
@@ -31,30 +31,30 @@ export default function ProjectCard({ item }: Props) {
       },
       {
         scale: 1,
-        ease: "power1.inOut",
+        ease: 'power1.inOut',
       }
-    )
-  }, [])
+    );
+  }, []);
 
   useEffect(() => {
-    let ignore = false
-    if (!item.githubApi) return
+    let ignore = false;
+    if (!item.githubApi) return;
     async function fetchData() {
-      const response = await fetch(item.githubApi)
-      const data = await response.json()
-      const stargazersCount = data.stargazers_count
-      const stargazersUrl = data.stargazers_url
+      const response = await fetch(item.githubApi);
+      const data = await response.json();
+      const stargazersCount = data.stargazers_count;
+      const stargazersUrl = data.stargazers_url;
 
       if (stargazersCount && stargazersUrl && !ignore) {
-        setStarCount(stargazersCount)
+        setStarCount(stargazersCount);
       }
     }
 
-    fetchData()
+    fetchData();
     return () => {
-      ignore = true
-    }
-  }, [item.githubApi])
+      ignore = true;
+    };
+  }, [item.githubApi]);
 
   return (
     <div
@@ -66,9 +66,7 @@ export default function ProjectCard({ item }: Props) {
       <div className="flex-1  group relative after:content-[''] after:rounded-full after:absolute after:content after:z-[10] after:w-[32px] after:h-[32px] after:bg-accentColor after:scale-[1] after:bottom-[-24px] after:right-[-24px] after:origin-center after:transition-transform after:duration-500 after:ease-out hover:after:scale-[25] overflow-hidden p-4 flex flex-col items-start justify-between">
         <div className="w-full px-4 absolute left-[50%] -translate-x-1/2 z-20 flex flex-col gap-2 items-start ">
           <div className="w-full flex justify-between items-center">
-            <div className="text-accentColor group-hover:text-white font-medium">
-              {item.title}
-            </div>
+            <div className="text-accentColor group-hover:text-white font-medium">{item.title}</div>
             <div className="flex items-center group">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,9 +86,7 @@ export default function ProjectCard({ item }: Props) {
               <div className="font-medium text-sm">{starCount}</div>
             </div>
           </div>
-          <div className="text-black text-sm group-hover:text-white">
-            {item.description}
-          </div>
+          <div className="text-black text-sm group-hover:text-white">{item.description}</div>
         </div>
 
         <div className="w-full px-4 left-[50%] -translate-x-1/2 bottom-[10%] absolute z-20 flex items-center justify-between">
@@ -110,7 +106,7 @@ export default function ProjectCard({ item }: Props) {
                 >
                   {tech}
                 </div>
-              )
+              );
             })}
           </div>
 
@@ -140,5 +136,5 @@ export default function ProjectCard({ item }: Props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

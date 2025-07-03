@@ -1,33 +1,33 @@
-"use client"
+'use client';
 
-import { useEffect, useRef, useState } from "react"
-import { gsap } from "gsap"
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
 
 const Loader = () => {
-  const loadingRef = useRef(null)
+  const loadingRef = useRef(null);
 
-  const [isAnimationFinished, setIsAnimationFinished] = useState<boolean>(false)
+  const [isAnimationFinished, setIsAnimationFinished] = useState<boolean>(false);
 
   useEffect(() => {
     const tl = gsap.timeline({
       onComplete: () => {
-        setIsAnimationFinished(true)
+        setIsAnimationFinished(true);
       },
-    })
-    tl.to(".counter", 0.01, {
+    });
+    tl.to('.counter', 0.01, {
       delay: 1.1,
       opacity: 0,
-    })
-    tl.to(".line", 1.5, {
+    });
+    tl.to('.line', 1.5, {
       height: 0,
       stagger: {
         amount: 0.5,
       },
-      ease: "power4.inOut",
-    })
-  }, [])
+      ease: 'power4.inOut',
+    });
+  }, []);
 
-  const [count, setCount] = useState(1990)
+  const [count, setCount] = useState(1990);
   const [intervalDelay, setIntervalDelay] = useState(100); // initial delay
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
@@ -38,7 +38,7 @@ const Loader = () => {
 
     // Set up new interval with current delay
     intervalRef.current = setInterval(() => {
-      setCount(prevCount => {
+      setCount((prevCount) => {
         if (prevCount > 2024) {
           if (intervalRef.current !== null) {
             clearInterval(intervalRef.current);
@@ -56,11 +56,10 @@ const Loader = () => {
 
     // Cleanup on unmount or delay change
     return () => {
-      
       if (intervalRef.current !== null) {
         clearInterval(intervalRef.current);
       }
-    }
+    };
   }, [intervalDelay]);
 
   return (
@@ -78,7 +77,7 @@ const Loader = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

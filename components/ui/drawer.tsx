@@ -1,6 +1,6 @@
-import * as React from "react";
-import { cn } from "@/lib/utils";
-import { Drawer as DrawerPrimitive } from "vaul"; // Confirm the correct package name (e.g., "vaul" or "@radix-ui/react-dialog")
+import * as React from 'react';
+import { cn } from '@/lib/utils';
+import { Drawer as DrawerPrimitive } from 'vaul'; // Confirm the correct package name (e.g., "vaul" or "@radix-ui/react-dialog")
 
 /**
  * Core Drawer component with optional background scaling.
@@ -12,7 +12,7 @@ const Drawer = ({
 }: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
   <DrawerPrimitive.Root shouldScaleBackground={shouldScaleBackground} {...props} />
 );
-Drawer.displayName = "Drawer";
+Drawer.displayName = 'Drawer';
 
 /** Trigger button for opening the drawer */
 const DrawerTrigger = DrawerPrimitive.Trigger;
@@ -30,7 +30,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
-    className={cn("fixed inset-0 z-50 bg-black/80", className)}
+    className={cn('fixed inset-0 z-50 bg-black/80', className)}
     {...props}
   />
 ));
@@ -49,8 +49,8 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 mt-24 flex flex-col rounded-t-[10px] border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950",
-        "max-h-[90vh] overflow-y-auto",
+        'fixed inset-x-0 bottom-0 z-50 mt-24 flex flex-col rounded-t-[10px] border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950',
+        'max-h-[90vh] overflow-y-auto',
         className
       )}
       {...props}
@@ -61,35 +61,23 @@ const DrawerContent = React.forwardRef<
     </DrawerPrimitive.Content>
   </DrawerPortal>
 ));
-DrawerContent.displayName = "DrawerContent";
+DrawerContent.displayName = 'DrawerContent';
 
 /**
  * Header section of the drawer, typically contains title or heading.
  */
-const DrawerHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)}
-    {...props}
-  />
+const DrawerHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn('grid gap-1.5 p-4 text-center sm:text-left', className)} {...props} />
 );
-DrawerHeader.displayName = "DrawerHeader";
+DrawerHeader.displayName = 'DrawerHeader';
 
 /**
  * Footer section for actions or secondary content, aligned at the bottom.
  */
-const DrawerFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn("mt-auto flex flex-col gap-2 p-4")}
-    {...props}
-  />
+const DrawerFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn('mt-auto flex flex-col gap-2 p-4')} {...props} />
 );
-DrawerFooter.displayName = "DrawerFooter";
+DrawerFooter.displayName = 'DrawerFooter';
 
 /**
  * Title element for drawer, supports styling and ref forwarding.
@@ -100,7 +88,7 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
-    className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
     {...props}
   />
 ));
@@ -115,7 +103,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}
-    className={cn("text-sm text-zinc-500 dark:text-zinc-400", className)}
+    className={cn('text-sm text-zinc-500 dark:text-zinc-400', className)}
     {...props}
   />
 ));

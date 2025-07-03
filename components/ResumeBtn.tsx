@@ -1,71 +1,71 @@
-"use client"
+'use client';
 
-import { useEffect, useRef } from "react"
-import { cn } from "@/lib/utils"
-import { useSectionStore } from "@/store/section"
-import { gsap } from "gsap"
+import { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { useSectionStore } from '@/store/section';
+import { gsap } from 'gsap';
 
 export default function ResumeBtn() {
-  const topTween = useRef(null)
-  const rightTween = useRef(null)
-  const bottomTween = useRef(null)
-  const leftTween = useRef(null)
+  const topTween = useRef(null);
+  const rightTween = useRef(null);
+  const bottomTween = useRef(null);
+  const leftTween = useRef(null);
 
   useEffect(() => {
     if (topTween && rightTween && bottomTween && leftTween) {
       gsap.fromTo(
         topTween.current,
         {
-          left: "-100%",
+          left: '-100%',
         },
         {
-          left: "100%",
+          left: '100%',
           repeat: -1,
           duration: 2,
         }
-      )
+      );
       gsap.fromTo(
         rightTween.current,
         {
-          top: "-100%",
+          top: '-100%',
         },
         {
-          top: "100%",
+          top: '100%',
           delay: 0.5,
           repeat: -1,
           duration: 2,
         }
-      )
+      );
 
       gsap.fromTo(
         bottomTween.current,
         {
-          right: "-100%",
+          right: '-100%',
         },
         {
-          right: "100%",
+          right: '100%',
           delay: 1,
           repeat: -1,
           duration: 2,
         }
-      )
+      );
 
       gsap.fromTo(
         leftTween.current,
         {
-          bottom: "-100%",
+          bottom: '-100%',
         },
         {
-          bottom: "100%",
+          bottom: '100%',
           delay: 1.5,
           repeat: -1,
           duration: 2,
         }
-      )
+      );
     }
-  }, [])
+  }, []);
 
-  const { section } = useSectionStore()
+  const { section } = useSectionStore();
   return (
     <a
       role="button"
@@ -94,12 +94,12 @@ export default function ResumeBtn() {
       />
       <div
         className={cn(
-          "text-xs group-hover:text-white text-accentColor dark:text-gray-300",
-          section === "#project" && "dark:text-black"
+          'text-xs group-hover:text-white text-accentColor dark:text-gray-300',
+          section === '#project' && 'dark:text-black'
         )}
       >
         Resume
       </div>
     </a>
-  )
+  );
 }

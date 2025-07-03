@@ -1,18 +1,18 @@
-"use client"
+'use client';
 
-import { useEffect, useRef } from "react"
-import useScrollActive from "@/hooks/useScrollActive"
-import { useSectionStore } from "@/store/section"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import Link from "next/link"
+import { useEffect, useRef } from 'react';
+import useScrollActive from '@/hooks/useScrollActive';
+import { useSectionStore } from '@/store/section';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Link from 'next/link';
 
 export default function ContactSection() {
-  gsap.registerPlugin(ScrollTrigger)
-  const sectionRef = useRef(null)
+  gsap.registerPlugin(ScrollTrigger);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const q = gsap.utils.selector(sectionRef)
+    const q = gsap.utils.selector(sectionRef);
 
     gsap.timeline({
       scrollTrigger: {
@@ -20,34 +20,30 @@ export default function ContactSection() {
         scrub: true,
         onEnter: () => {
           gsap.fromTo(
-            q(".title-animation"),
+            q('.title-animation'),
             {
-              y: "200%",
+              y: '200%',
             },
             {
               y: 0,
             }
-          )
+          );
 
-          gsap.fromTo(
-            q(".end-title"),
-            { scale: 0 },
-            { scale: 1, ease: "back.inOut" }
-          )
+          gsap.fromTo(q('.end-title'), { scale: 0 }, { scale: 1, ease: 'back.inOut' });
         },
       },
-    })
-  }, [])
+    });
+  }, []);
 
   // Set Active Session
 
-  const contactSectionOnView = useScrollActive(sectionRef)
+  const contactSectionOnView = useScrollActive(sectionRef);
 
-  const { setSection } = useSectionStore()
+  const { setSection } = useSectionStore();
 
   useEffect(() => {
-    contactSectionOnView && setSection("#contact")
-  }, [contactSectionOnView, setSection])
+    contactSectionOnView && setSection('#contact');
+  }, [contactSectionOnView, setSection]);
 
   return (
     <section
@@ -58,9 +54,7 @@ export default function ContactSection() {
       <div className="w-full max-w-[1100px] h-full m-auto flex flex-col gap-40 items-center">
         <div className="flex flex-col items-center gap-2">
           <div className="overflow-hidden">
-            <div className="title-animation dark:text-white text-lg">
-              Want to collaborate?
-            </div>
+            <div className="title-animation dark:text-white text-lg">Want to collaborate?</div>
           </div>
           <div className="overflow-hidden">
             <div className="text-center title-animation text-5xl navlink text-accentColor">
@@ -78,12 +72,8 @@ export default function ContactSection() {
               aria-label="Contact me on linkedin"
               className="rounded-full group hover:border-accentColor flex items-center gap-2 border py-[1px] px-4"
             >
-              <div className="font-semibold group-hover:scale-105 dark:text-white">
-                in
-              </div>
-              <div className="text-xs dark:text-white group-hover:scale-105">
-                Linkedin
-              </div>
+              <div className="font-semibold group-hover:scale-105 dark:text-white">in</div>
+              <div className="text-xs dark:text-white group-hover:scale-105">Linkedin</div>
             </Link>
 
             <Link
@@ -108,9 +98,7 @@ export default function ContactSection() {
                 <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
                 <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
               </svg>
-              <div className="text-xs dark:text-white group-hover:scale-105">
-                Twitter
-              </div>
+              <div className="text-xs dark:text-white group-hover:scale-105">Twitter</div>
             </Link>
 
             <Link
@@ -134,25 +122,18 @@ export default function ContactSection() {
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
               </svg>
-              <div className="text-xs dark:text-white group-hover:scale-105">
-                Github
-              </div>
+              <div className="text-xs dark:text-white group-hover:scale-105">Github</div>
             </Link>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-accentColor text-lg font-semibold">
-              Henry Brown
-            </div>
-            <div className="dark:text-white text-sm">
-              Designer, Developer & Lover
-            </div>
+            <div className="text-accentColor text-lg font-semibold">Henry Brown</div>
+            <div className="dark:text-white text-sm">Designer, Developer & Lover</div>
           </div>
           <div className="overflow-hidden flex justify-center items-center">
             <div className="title-animation w-full md:max-w-[80%] text-center dark:text-gray-400">
-              I&apos;m always excited to connect with like-minded professionals
-              and potential collaborators. Whether you have a project in mind,
-              need assistance, or just want to say hello, feel free to reach
-              out!
+              I&apos;m always excited to connect with like-minded professionals and potential
+              collaborators. Whether you have a project in mind, need assistance, or just want to
+              say hello, feel free to reach out!
             </div>
           </div>
           <div className="end-title dark:text-white text-md">
@@ -167,5 +148,5 @@ export default function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
