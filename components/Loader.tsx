@@ -66,7 +66,7 @@ const Loader = () => {
     <div ref={loadingRef} aria-hidden="true">
       {!isAnimationFinished && (
         <>
-          <div className="absolute counter w-screen h-screen z-[10000] left-[-45%] top-[-45%] bg-black p-10 flex justify-end items-end text-[7rem] font-bold text-accentColor">
+          <div className="fixed counter w-screen h-screen z-[10000] inset-0 bg-black p-10 flex items-center justify-center text-[7rem] font-bold text-accentColor">
             {count}
           </div>
           <div className="fixed w-screen h-screen z-[9999] flex">
