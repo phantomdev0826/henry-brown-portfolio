@@ -1,6 +1,6 @@
-import { ArrowRightIcon } from "@radix-ui/react-icons"
-import { ArrowDown2, Mouse } from "iconsax-react"
-import Link from "next/link"
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { ArrowDown2, Mouse } from 'iconsax-react';
+import Link from 'next/link';
 
 export default function SocialLinks() {
   return (
@@ -27,7 +27,7 @@ export default function SocialLinks() {
         <Link
           href={`mailto:${process.env.NEXT_PUBLIC_EMAIL}`}
           style={{
-            writingMode: "vertical-lr",
+            writingMode: 'vertical-lr',
           }}
           aria-label="blog"
           className="flex text-xs group-hover:text-accentColor font-light tracking-[0.3em] items-center gap-2 dark:text-gray-400"
@@ -59,14 +59,14 @@ export default function SocialLinks() {
         </div>
       </Link>
     </>
-  )
+  );
 }
 
 const socialLinks = [
   {
     id: 1,
     title: "Henry Brown's Github Profile",
-    link: "https://github.com/phantomdev0826",
+    link: 'https://github.com/phantomdev0826',
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const socialLinks = [
   {
     id: 2,
     title: "Henry Brown's LinkedIn Profile",
-    link: "https://www.linkedin.com/in/tylerrflowers/",
+    link: 'https://www.linkedin.com/in/tylerrflowers/',
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -96,8 +96,8 @@ const socialLinks = [
   },
   {
     id: 3,
-    title: "Check Henry Brown on Dev.to",
-    link: "https://dev.to/ajai_player_ddc077297d019",
+    title: 'Check Henry Brown on Dev.to',
+    link: 'https://dev.to/ajai_player_ddc077297d019',
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -109,4 +109,4 @@ const socialLinks = [
       </svg>
     ),
   },
-]
+];

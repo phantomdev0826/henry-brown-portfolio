@@ -1,33 +1,33 @@
-"use client"
+'use client';
 
-import { useEffect, useRef } from "react"
-import useOnScreen from "@/hooks/useOnScreen"
-import useScrollActive from "@/hooks/useScrollActive"
-import MantineBoards from "@/public/assets/projects/mantine-boards.png"
-import MiroClone from "@/public/assets/projects/miro-clone.png"
-import MotionScape from "@/public/assets/projects/motion-scape.png"
-import PortfolioV2 from "@/public/assets/projects/portfolio-v2.png"
-import TheRealHotels from "@/public/assets/projects/therealhotels.png"
-import ValentinCarousel from "@/public/assets/projects/valentin-carousel.png"
-import VSCode from "@/public/assets/projects/vscode.png"
-import { useSectionStore } from "@/store/section"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { StaticImageData } from "next/image"
-import Link from "next/link"
-import { RoughNotation } from "react-rough-notation"
-import ProjectCard from "../ProjectCard"
+import { useEffect, useRef } from 'react';
+import useOnScreen from '@/hooks/useOnScreen';
+import useScrollActive from '@/hooks/useScrollActive';
+import MantineBoards from '@/public/assets/projects/mantine-boards.png';
+import MiroClone from '@/public/assets/projects/miro-clone.png';
+import MotionScape from '@/public/assets/projects/motion-scape.png';
+import PortfolioV2 from '@/public/assets/projects/portfolio-v2.png';
+import TheRealHotels from '@/public/assets/projects/therealhotels.png';
+import ValentinCarousel from '@/public/assets/projects/valentin-carousel.png';
+import VSCode from '@/public/assets/projects/vscode.png';
+import { useSectionStore } from '@/store/section';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { StaticImageData } from 'next/image';
+import Link from 'next/link';
+import { RoughNotation } from 'react-rough-notation';
+import ProjectCard from '../ProjectCard';
 
 export default function ProjectSection() {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
 
-  const elementRef = useRef<HTMLDivElement>(null)
-  const isOnScreen = useOnScreen(elementRef)
+  const elementRef = useRef<HTMLDivElement>(null);
+  const isOnScreen = useOnScreen(elementRef);
 
   useEffect(() => {
-    const q = gsap.utils.selector(sectionRef)
+    const q = gsap.utils.selector(sectionRef);
 
     gsap.timeline({
       scrollTrigger: {
@@ -35,26 +35,26 @@ export default function ProjectSection() {
         scrub: true,
         onEnter: () => {
           gsap.fromTo(
-            q(".qoutes-animation"),
+            q('.qoutes-animation'),
             {
-              y: "-200%",
+              y: '-200%',
             },
             {
               y: 0,
             }
-          )
+          );
         },
       },
-    })
-  }, [])
+    });
+  }, []);
 
   // Set Active Session
-  const projectSectionOnView = useScrollActive(sectionRef)
-  const { setSection } = useSectionStore()
+  const projectSectionOnView = useScrollActive(sectionRef);
+  const { setSection } = useSectionStore();
 
   useEffect(() => {
-    projectSectionOnView && setSection("#project")
-  }, [projectSectionOnView, setSection])
+    projectSectionOnView && setSection('#project');
+  }, [projectSectionOnView, setSection]);
 
   return (
     <section
@@ -89,7 +89,7 @@ export default function ProjectSection() {
         </div>
 
         <div className="font-medium">
-          Explore more projects in{" "}
+          Explore more projects in{' '}
           <Link
             href="https://github.com/phantomdev0826"
             target="_blank"
@@ -102,97 +102,94 @@ export default function ProjectSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 export interface Project {
-  id: number
-  title: string
-  description: string
-  techStacks: string[]
-  image: StaticImageData
-  githubURL: string
-  githubApi: string
-  liveURL: string
+  id: number;
+  title: string;
+  description: string;
+  techStacks: string[];
+  image: StaticImageData;
+  githubURL: string;
+  githubApi: string;
+  liveURL: string;
 }
 
 const projects: Project[] = [
   {
     id: 1,
-    title: "VSCode Portfolio",
-    description:
-      "My portfolio website in vscode version developed with React and TypeScript.",
-    techStacks: ["ReactJS", "TypeScript"],
+    title: 'VSCode Portfolio',
+    description: 'My portfolio website in vscode version developed with React and TypeScript.',
+    techStacks: ['ReactJS', 'TypeScript'],
     image: VSCode,
-    githubURL: "https://github.com/phantomdev0826/vscode-portfolio",
-    liveURL: "https://phantomdev0826-v1.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/vscode-portfolio",
+    githubURL: 'https://github.com/phantomdev0826/vscode-portfolio',
+    liveURL: 'https://phantomdev0826-v1.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/vscode-portfolio',
   },
 
   {
     id: 2,
-    title: "Portfolio V2",
+    title: 'Portfolio V2',
     description:
-      "A refined and enhanced showcase of my work, designed to highlight my skills and projects with a sleek and modern interface.",
-    techStacks: ["NextJS", "ShadnUI", "GSAP"],
+      'A refined and enhanced showcase of my work, designed to highlight my skills and projects with a sleek and modern interface.',
+    techStacks: ['NextJS', 'ShadnUI', 'GSAP'],
     image: PortfolioV2,
-    githubURL: "https://github.com/phantomdev0826/dev_portpolio",
-    liveURL: "https://phantomdev0826.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/shinthant.dev",
+    githubURL: 'https://github.com/phantomdev0826/dev_portpolio',
+    liveURL: 'https://phantomdev0826.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/shinthant.dev',
   },
   {
     id: 3,
-    title: "Mantine Boards",
+    title: 'Mantine Boards',
     description:
-      "Responsive Dashboards, perfect for admin dashboards, analytics platforms, or any project that requires a clean, modern interface.",
-    techStacks: ["RemixJS", "MantineUI"],
+      'Responsive Dashboards, perfect for admin dashboards, analytics platforms, or any project that requires a clean, modern interface.',
+    techStacks: ['RemixJS', 'MantineUI'],
     image: MantineBoards,
-    githubURL: "https://github.com/phantomdev0826/mantine-boards",
-    liveURL: "https://mantine-boards.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/mantine-boards",
+    githubURL: 'https://github.com/phantomdev0826/mantine-boards',
+    liveURL: 'https://mantine-boards.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/mantine-boards',
   },
   {
     id: 4,
-    title: "Motion Scape",
+    title: 'Motion Scape',
     description:
-      "Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design.",
-    techStacks: ["NextJS", "GSAP", "TypeScript"],
+      'Motion Scape is a visually dynamic website dedicated to the art of animations and transitions in web design.',
+    techStacks: ['NextJS', 'GSAP', 'TypeScript'],
     image: MotionScape,
-    githubURL: "https://github.com/phantomdev0826/motion-scape",
-    liveURL: "https://motion-gsap.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/motion-scape",
+    githubURL: 'https://github.com/phantomdev0826/motion-scape',
+    liveURL: 'https://motion-gsap.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/motion-scape',
   },
   {
     id: 5,
-    title: "Valentin Carousel",
-    description:
-      "An animated carousel inspired by Valentin Awward Winning Website",
-    techStacks: ["ReactJs", "GSAP"],
+    title: 'Valentin Carousel',
+    description: 'An animated carousel inspired by Valentin Awward Winning Website',
+    techStacks: ['ReactJs', 'GSAP'],
     image: ValentinCarousel,
-    githubURL: "https://github.com/phantomdev0826/valentin-carousel",
-    liveURL: "https://valentin-carousel.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/valentin-carousel",
+    githubURL: 'https://github.com/phantomdev0826/valentin-carousel',
+    liveURL: 'https://valentin-carousel.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/valentin-carousel',
   },
   {
     id: 6,
-    title: "TheRealHotels",
-    description:
-      "A Landing Website Inspired by awwarded website,therealhotels.com",
-    techStacks: ["ReactJs", "GSAP"],
+    title: 'TheRealHotels',
+    description: 'A Landing Website Inspired by awwarded website,therealhotels.com',
+    techStacks: ['ReactJs', 'GSAP'],
     image: TheRealHotels,
-    githubURL: "https://github.com/phantomdev0826/therealhotels",
-    liveURL: "https://therealhotels.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/therealhotels",
+    githubURL: 'https://github.com/phantomdev0826/therealhotels',
+    liveURL: 'https://therealhotels.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/therealhotels',
   },
   {
     id: 7,
-    title: "Miro Clone",
+    title: 'Miro Clone',
     description:
-      "Enjoy a wide range of brushes, colors, and effects, along with layers, undo/redo functionality, and easy sharing options.",
-    techStacks: ["NextJS", "ShadnUI", "Convex", "Clerk", "Liveblocks"],
+      'Enjoy a wide range of brushes, colors, and effects, along with layers, undo/redo functionality, and easy sharing options.',
+    techStacks: ['NextJS', 'ShadnUI', 'Convex', 'Clerk', 'Liveblocks'],
     image: MiroClone,
-    githubURL: "https://github.com/phantomdev0826/realtime-miro-clone",
-    liveURL: "https://realtime-miro-clone.vercel.app",
-    githubApi: "https://api.github.com/repos/phantomdev0826/realtime-miro-clone",
+    githubURL: 'https://github.com/phantomdev0826/realtime-miro-clone',
+    liveURL: 'https://realtime-miro-clone.vercel.app',
+    githubApi: 'https://api.github.com/repos/phantomdev0826/realtime-miro-clone',
   },
-]
+];

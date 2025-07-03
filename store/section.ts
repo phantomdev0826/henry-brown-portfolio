@@ -1,19 +1,19 @@
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
-export type Section = "#home" | "#about" | "#skills" | "#project" | "#blog" | "#contact"
+export type Section = '#home' | '#about' | '#skills' | '#project' | '#blog' | '#contact';
 
 interface SectionState {
-  section: Section
-  setSection: (section: Section) => void
+  section: Section;
+  setSection: (section: Section) => void;
 }
 
 export const useSectionStore = create<SectionState>()(
   persist(
     (set) => ({
-      section: "#home",
+      section: '#home',
       setSection: (section) => set(() => ({ section })),
     }),
-    { name: "section-store" }
+    { name: 'section-store' }
   )
-)
+);

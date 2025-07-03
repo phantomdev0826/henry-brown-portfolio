@@ -1,92 +1,94 @@
-"use client"
+'use client';
 
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useScrollActive from "@/hooks/useScrollActive";
-import { useSectionStore } from "@/store/section";
-import { RoughNotation } from "react-rough-notation";
-import useOnScreen from "@/hooks/useOnScreen";
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useScrollActive from '@/hooks/useScrollActive';
+import { useSectionStore } from '@/store/section';
+import { RoughNotation } from 'react-rough-notation';
+import useOnScreen from '@/hooks/useOnScreen';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
   {
-    name: "JavaScript",
-    icon: "/assets/skills/javascript-programming-language-icon.svg",
+    name: 'JavaScript',
+    icon: '/assets/skills/javascript-programming-language-icon.svg',
     level: 90,
-    description: "A versatile programming language used for dynamic web development and scripting."
+    description: 'A versatile programming language used for dynamic web development and scripting.',
   },
   {
-    name: "React",
-    icon: "/assets/skills/react-js-icon.svg",
+    name: 'React',
+    icon: '/assets/skills/react-js-icon.svg',
     level: 85,
-    description: "A popular JavaScript library for building user interfaces with component-based architecture."
+    description:
+      'A popular JavaScript library for building user interfaces with component-based architecture.',
   },
   // Add Angular
   {
-    name: "Angular",
-    icon: "/assets/skills/angular-icon.svg",
+    name: 'Angular',
+    icon: '/assets/skills/angular-icon.svg',
     level: 80,
-    description: "A TypeScript-based open-source web application framework led by Google.",
+    description: 'A TypeScript-based open-source web application framework led by Google.',
   },
   {
-    name: "Next.js",
-    icon: "/assets/skills/nextjs-icon.svg",
+    name: 'Next.js',
+    icon: '/assets/skills/nextjs-icon.svg',
     level: 80,
-    description: "A React framework for server-side rendering and static site generation, enhancing performance."
+    description:
+      'A React framework for server-side rendering and static site generation, enhancing performance.',
   },
   {
-    name: "CSS3",
-    icon: "/assets/skills/bootstrap-4-icon.svg",
+    name: 'CSS3',
+    icon: '/assets/skills/bootstrap-4-icon.svg',
     level: 90,
-    description: "Styling language for designing responsive and visually appealing web pages."
+    description: 'Styling language for designing responsive and visually appealing web pages.',
   },
   {
-    name: "Tailwind CSS",
-    icon: "/assets/skills/tailwind-css-icon.svg",
+    name: 'Tailwind CSS',
+    icon: '/assets/skills/tailwind-css-icon.svg',
     level: 85,
-    description: "A utility-first CSS framework for rapid UI development with customizable design."
+    description: 'A utility-first CSS framework for rapid UI development with customizable design.',
   },
   {
-    name: "Node.js",
-    icon: "/assets/skills/node-js-icon.svg",
+    name: 'Node.js',
+    icon: '/assets/skills/node-js-icon.svg',
     level: 75,
-    description: "JavaScript runtime environment for building scalable backend applications."
+    description: 'JavaScript runtime environment for building scalable backend applications.',
   },
   {
-    name: "TypeScript",
-    icon: "/assets/skills/typescript-programming-language-icon.svg",
+    name: 'TypeScript',
+    icon: '/assets/skills/typescript-programming-language-icon.svg',
     level: 80,
-    description: "A typed superset of JavaScript that adds static types for better code quality."
+    description: 'A typed superset of JavaScript that adds static types for better code quality.',
   },
 ];
 
 export default function SkillsSection() {
   const sectionRef = useRef(null);
-  
-  const elementRef = useRef<HTMLDivElement>(null)
-  const isOnScreen = useOnScreen(elementRef)
-  
-  const aboutSectionOnView = useScrollActive(sectionRef)
-  const { setSection } = useSectionStore()
+
+  const elementRef = useRef<HTMLDivElement>(null);
+  const isOnScreen = useOnScreen(elementRef);
+
+  const aboutSectionOnView = useScrollActive(sectionRef);
+  const { setSection } = useSectionStore();
 
   useEffect(() => {
-    aboutSectionOnView && setSection("#skills")
-  }, [aboutSectionOnView, setSection])
+    aboutSectionOnView && setSection('#skills');
+  }, [aboutSectionOnView, setSection]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".skill-card", {
+      gsap.from('.skill-card', {
         scrollTrigger: {
-          trigger: ".skills-grid",
-          start: "top 80%",
+          trigger: '.skills-grid',
+          start: 'top 80%',
         },
         y: 30,
         opacity: 0,
         stagger: 0.2,
         duration: 0.8,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
     }, sectionRef);
 
@@ -110,20 +112,22 @@ export default function SkillsSection() {
             show={isOnScreen}
           >
             <div className="text-xl md:text-4xl tracking-tight font-medium w-fit dark:text-accentColor">
-                My Skills & Technologies
+              My Skills & Technologies
             </div>
           </RoughNotation>
           <div ref={elementRef} className="overflow-hidden ">
             <div className="qoutes-animation  md:w-full text-center font-medium flex flex-col items-center">
-              <div>I utilize these tools and technologies to build efficient, modern web applications:</div>
+              <div>
+                I utilize these tools and technologies to build efficient, modern web applications:
+              </div>
               <div>Design is not for philosophy, it&apos;s for life.</div>
             </div>
           </div>
         </div>
-        </div>
+      </div>
 
       {/* Skills Grid */}
-      
+
       <div className="grid pt-40 grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto px-4 skills-grid">
         {skills.map((skill) => (
           <div
@@ -132,11 +136,7 @@ export default function SkillsSection() {
           >
             {/* Icon */}
             <div className="flex justify-center mb-4">
-              <img
-                src={skill.icon}
-                alt={`${skill.name} icon`}
-                className="w-16 h-16"
-              />
+              <img src={skill.icon} alt={`${skill.name} icon`} className="w-16 h-16" />
             </div>
             {/* Skill Name */}
             <h3 className="text-xl font-semibold text-center uppercase tracking-wide mb-2">

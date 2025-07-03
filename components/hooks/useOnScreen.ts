@@ -4,4 +4,3 @@
  * @param rootMargin - Optional margin around the root
  * @returns boolean - true if element is on screen
  */
- 

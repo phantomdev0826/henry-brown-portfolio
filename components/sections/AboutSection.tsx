@@ -1,18 +1,18 @@
-"use client"
+'use client';
 
-import { useEffect, useRef } from "react"
-import useScrollActive from "@/hooks/useScrollActive"
-import Circle from "@/public/assets/about/circle.svg"
-import Signs from "@/public/assets/about/signs.svg"
-import Star from "@/public/assets/about/star.svg"
-import Triangle from "@/public/assets/about/triangle.svg"
-import HenryBrownImage from "@/public/me-5.jpg"
-import { useSectionStore } from "@/store/section"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import Image from "next/image"
-import SplitType from "split-type"
-import clsx from '../ui/clsx'
+import { useEffect, useRef } from 'react';
+import useScrollActive from '@/hooks/useScrollActive';
+import Circle from '@/public/assets/about/circle.svg';
+import Signs from '@/public/assets/about/signs.svg';
+import Star from '@/public/assets/about/star.svg';
+import Triangle from '@/public/assets/about/triangle.svg';
+import HenryBrownImage from '@/public/me-5.jpg';
+import { useSectionStore } from '@/store/section';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Image from 'next/image';
+import SplitType from 'split-type';
+import clsx from 'clsx';
 
 export default function AboutSection() {
   gsap.registerPlugin(ScrollTrigger);
@@ -22,19 +22,19 @@ export default function AboutSection() {
   useEffect(() => {
     const q = gsap.utils.selector(sectionRef);
 
-    new SplitType(q(".title"), {
-      types: "chars",
-      tagName: "span",
+    new SplitType(q('.title'), {
+      types: 'chars',
+      tagName: 'span',
     });
 
-    gsap.from(q(".title .char"), {
+    gsap.from(q('.title .char'), {
       opacity: 0.3,
       duration: 0.5,
-      ease: "power1.out",
+      ease: 'power1.out',
       stagger: 0.1,
       scrollTrigger: {
-        trigger: q(".title"),
-        start: "top center",
+        trigger: q('.title'),
+        start: 'top center',
         scrub: true,
       },
     });
@@ -51,35 +51,35 @@ export default function AboutSection() {
             },
           });
 
-          tl.fromTo(
-            q(".image-animation"),
-            { x: 200 },
-            { x: 0 }
-          );
+          tl.fromTo(q('.image-animation'), { x: 200 }, { x: 0 });
 
-          tl.fromTo(
-            q(".text-animation"),
-            { y: 100 },
-            { y: 0 }
-          );
+          tl.fromTo(q('.text-animation'), { y: 100 }, { y: 0 });
 
-          tl.to(q(".experience-count"), {
+          tl.to(q('.experience-count'), {
             innerText: 8,
             duration: 0.5,
             snap: { innerText: 1 },
           });
 
-          tl.to(q(".project-count"), {
-            innerText: 30,
-            duration: 0.5,
-            snap: { innerText: 1 },
-          }, "-=0.3");
+          tl.to(
+            q('.project-count'),
+            {
+              innerText: 30,
+              duration: 0.5,
+              snap: { innerText: 1 },
+            },
+            '-=0.3'
+          );
 
-          tl.to(q(".user-count"), {
-            innerText: 80,
-            duration: 0.5,
-            snap: { innerText: 1 },
-          }, "-=0.3");
+          tl.to(
+            q('.user-count'),
+            {
+              innerText: 80,
+              duration: 0.5,
+              snap: { innerText: 1 },
+            },
+            '-=0.3'
+          );
         },
       },
     });
@@ -90,7 +90,7 @@ export default function AboutSection() {
   const { setSection } = useSectionStore();
 
   useEffect(() => {
-    aboutSectionOnView ? setSection("#about") : setSection("#home");
+    aboutSectionOnView ? setSection('#about') : setSection('#home');
   }, [aboutSectionOnView, setSection]);
 
   return (
@@ -101,14 +101,14 @@ export default function AboutSection() {
     >
       <div className="w-full max-w-[1100px] h-full m-auto flex flex-col items-center gap-24">
         {/* Section Title */}
-        <div className={clsx(
-          'relative title tracking-tight font-medium w-fit',
-          'text-xl md:text-4xl',
-          'dark:text-white'
-        )}>
-          <span className="font-semibold">
-            Simplicity is the essence of efficiency.
-          </span>
+        <div
+          className={clsx(
+            'relative title tracking-tight font-medium w-fit',
+            'text-xl md:text-4xl',
+            'dark:text-white'
+          )}
+        >
+          <span className="font-semibold">Simplicity is the essence of efficiency.</span>
           <div className="absolute -right-[10px] top-2">
             <Image
               className="w-14 pointer-events-none select-none"
@@ -120,7 +120,6 @@ export default function AboutSection() {
 
         {/* Main Content */}
         <div className="w-full flex flex-col-reverse md:flex-row items-center gap-20 md:gap-2 lg:gap-10">
-          
           {/* Information & Educational Background */}
           <div className="w-full flex flex-col items-start gap-7 md:gap-9">
             {/* Personal Introduction */}
@@ -152,14 +151,17 @@ export default function AboutSection() {
             <div className="flex flex-col items-start gap-4">
               <div className="overflow-hidden">
                 <div className="dark:text-white text-animation">
-                  I possess a comprehensive educational background spanning six years, establishing a solid theoretical foundation in my discipline. Over an additional eight years, I have accumulated extensive practical experience in software development, demonstrating a consistent capacity to deliver high-quality solutions. The combination of academic knowledge and professional experience enables me to address complex challenges with diligence and expertise.
+                  I possess a comprehensive educational background spanning six years, establishing
+                  a solid theoretical foundation in my discipline. Over an additional eight years, I
+                  have accumulated extensive practical experience in software development,
+                  demonstrating a consistent capacity to deliver high-quality solutions. The
+                  combination of academic knowledge and professional experience enables me to
+                  address complex challenges with diligence and expertise.
                 </div>
               </div>
 
               <div className="overflow-hidden">
-                <div className="dark:text-white text-animation">
-                  My Educational Background:
-                </div>
+                <div className="dark:text-white text-animation">My Educational Background:</div>
               </div>
 
               {/* Educational Qualifications */}
@@ -173,9 +175,18 @@ export default function AboutSection() {
                       <div>Duration: 4 Years</div>
                       <div className="font-semibold mt-2">Highlights:</div>
                       <ul className="list-disc list-inside mt-1">
-                        <li>Developed a comprehensive understanding of Computer Engineering fundamentals.</li>
-                        <li>Enhanced critical thinking and problem-solving capabilities through rigorous coursework.</li>
-                        <li>Participated in various projects and extracurricular activities that enriched practical skills.</li>
+                        <li>
+                          Developed a comprehensive understanding of Computer Engineering
+                          fundamentals.
+                        </li>
+                        <li>
+                          Enhanced critical thinking and problem-solving capabilities through
+                          rigorous coursework.
+                        </li>
+                        <li>
+                          Participated in various projects and extracurricular activities that
+                          enriched practical skills.
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -190,9 +201,16 @@ export default function AboutSection() {
                       <div>Duration: 2 Years</div>
                       <div className="font-semibold mt-2">Highlights:</div>
                       <ul className="list-disc list-inside mt-1">
-                        <li>Specialized in Cloud Computing, building upon foundational knowledge.</li>
-                        <li>Conducted research and engaged in advanced coursework to deepen expertise.</li>
-                        <li>Successfully completed a thesis/project focused on Cloud Computing applications.</li>
+                        <li>
+                          Specialized in Cloud Computing, building upon foundational knowledge.
+                        </li>
+                        <li>
+                          Conducted research and engaged in advanced coursework to deepen expertise.
+                        </li>
+                        <li>
+                          Successfully completed a thesis/project focused on Cloud Computing
+                          applications.
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -205,7 +223,7 @@ export default function AboutSection() {
               {/* Experience Count */}
               <div className="flex flex-col items-center">
                 <div className="text-3xl md:text-4xl font-medium dark:text-white">
-                  <span className="experience-count">0</span>{" "}
+                  <span className="experience-count">0</span>{' '}
                   <span className="text-accentColor">+</span>
                 </div>
                 <div className="dark:text-white text-sm text-center">Years of Experience</div>
@@ -214,7 +232,7 @@ export default function AboutSection() {
               {/* Projects Completed */}
               <div className="flex flex-col font-medium items-center">
                 <div className="text-3xl md:text-4xl dark:text-white">
-                  <span className="project-count">0</span>{" "}
+                  <span className="project-count">0</span>{' '}
                   <span className="text-accentColor">+</span>
                 </div>
                 <div className="dark:text-white text-sm text-center">Projects Completed</div>
@@ -223,8 +241,7 @@ export default function AboutSection() {
               {/* Contributions */}
               <div className="flex flex-col font-medium items-center">
                 <div className="text-3xl md:text-4xl dark:text-white">
-                  <span className="user-count">0</span>{" "}
-                  <span className="text-accentColor">+</span>
+                  <span className="user-count">0</span> <span className="text-accentColor">+</span>
                 </div>
                 <div className="dark:text-white text-sm text-center">Significant Contributions</div>
               </div>
@@ -603,8 +620,8 @@ const TechStack = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export { default as AboutSection } from './AboutSection';
 export { default as BlogSection } from './BlogSection';

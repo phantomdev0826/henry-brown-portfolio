@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const ChatPanel = () => {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { sender: 'ai', text: "Hi! I am Henry Brown's AI assistant. Ask me anything about Henry!" }
+    { sender: 'ai', text: "Hi! I am Henry Brown's AI assistant. Ask me anything about Henry!" },
   ]);
   const [input, setInput] = useState('');
   const panelRef = useRef<HTMLDivElement>(null);
@@ -33,12 +33,15 @@ const ChatPanel = () => {
       });
       const data = await res.json();
       if (data.message) {
-        setMessages(msgs => [...msgs, { sender: 'ai', text: data.message }]);
+        setMessages((msgs) => [...msgs, { sender: 'ai', text: data.message }]);
       } else {
-        setMessages(msgs => [...msgs, { sender: 'ai', text: 'Sorry, something went wrong.' }]);
+        setMessages((msgs) => [...msgs, { sender: 'ai', text: 'Sorry, something went wrong.' }]);
       }
     } catch (err) {
-      setMessages(msgs => [...msgs, { sender: 'ai', text: 'Sorry, failed to connect to the AI.' }]);
+      setMessages((msgs) => [
+        ...msgs,
+        { sender: 'ai', text: 'Sorry, failed to connect to the AI.' },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -53,7 +56,7 @@ const ChatPanel = () => {
           size="icon"
           className="rounded-full shadow-lg text-2xl w-14 h-14 flex items-center justify-center"
           aria-label="Open chat"
-          onClick={() => setOpen(v => !v)}
+          onClick={() => setOpen((v) => !v)}
         >
           💬
         </Button>
@@ -74,14 +77,22 @@ const ChatPanel = () => {
             </button>
           </div>
           {/* Messages */}
-          <div ref={panelRef} className="flex-1 px-4 py-3 overflow-y-auto bg-gray-100 dark:bg-[#161D1F]">
+          <div
+            ref={panelRef}
+            className="flex-1 px-4 py-3 overflow-y-auto bg-gray-100 dark:bg-[#161D1F]"
+          >
             {messages.map((msg, i) => (
-              <div key={i} className={`mb-3 flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-                <span className={`inline-block px-4 py-2 rounded-2xl text-sm max-w-[80%] break-words ${
-                  msg.sender === 'user'
-                    ? 'bg-accentColor text-white dark:bg-accentColor'
-                    : 'bg-gray-200 text-gray-900 dark:bg-[#232c31] dark:text-gray-100'
-                }`}>
+              <div
+                key={i}
+                className={`mb-3 flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
+                <span
+                  className={`inline-block px-4 py-2 rounded-2xl text-sm max-w-[80%] break-words ${
+                    msg.sender === 'user'
+                      ? 'bg-accentColor text-white dark:bg-accentColor'
+                      : 'bg-gray-200 text-gray-900 dark:bg-[#232c31] dark:text-gray-100'
+                  }`}
+                >
                   {msg.text}
                 </span>
               </div>
@@ -103,7 +114,7 @@ const ChatPanel = () => {
           </div>
           {/* Input */}
           <form
-            onSubmit={e => {
+            onSubmit={(e) => {
               e.preventDefault();
               handleSend();
             }}
@@ -112,12 +123,18 @@ const ChatPanel = () => {
             <input
               type="text"
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me about Henry..."
               className="flex-1 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white text-gray-900 dark:bg-[#232c31] dark:text-gray-100 text-sm focus:outline-none focus:ring-2 focus:ring-accentColor transition placeholder:text-gray-400 dark:placeholder:text-gray-500"
               disabled={loading}
             />
-            <Button type="submit" variant="default" size="sm" className="px-4 py-2" disabled={loading}>
+            <Button
+              type="submit"
+              variant="default"
+              size="sm"
+              className="px-4 py-2"
+              disabled={loading}
+            >
               {loading ? '...' : 'Send'}
             </Button>
           </form>
@@ -127,4 +144,4 @@ const ChatPanel = () => {
   );
 };
 
-export default ChatPanel; 
+export default ChatPanel;

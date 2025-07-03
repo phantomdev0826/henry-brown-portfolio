@@ -1,39 +1,39 @@
-import { useEffect, useRef } from "react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { ArrowRight, Edit } from "iconsax-react"
-import Image from "next/image"
-import Link from "next/link"
-import { Blog } from "./sections/BlogSection"
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { ArrowRight, Edit } from 'iconsax-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Blog } from './sections/BlogSection';
 
 interface Props {
-  item: Blog
+  item: Blog;
 }
 
 export default function BlogCard({ item }: Props) {
-  const cardRef = useRef<HTMLDivElement>(null)
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: cardRef.current,
         start: `70% bottom`,
       },
-    })
+    });
 
     tl.fromTo(
       cardRef.current,
       {
-        y: "100%",
+        y: '100%',
       },
       {
         y: 0,
-        ease: "power1.inOut",
+        ease: 'power1.inOut',
       }
-    )
-  }, [])
+    );
+  }, []);
 
   return (
     <Link
@@ -73,5 +73,5 @@ export default function BlogCard({ item }: Props) {
         </div>
       </div>
     </Link>
-  )
+  );
 }

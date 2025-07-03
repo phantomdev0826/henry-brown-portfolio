@@ -1,22 +1,22 @@
-import { useEffect, useRef } from "react"
-import { ArrowRightIcon } from "@radix-ui/react-icons"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import Link from "next/link"
+import { useEffect, useRef } from 'react';
+import { ArrowRightIcon } from '@radix-ui/react-icons';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import Link from 'next/link';
 
 export default function HeroContent() {
-  const sectionRef = useRef(null)
-  const q = gsap.utils.selector(sectionRef)
+  const sectionRef = useRef(null);
+  const q = gsap.utils.selector(sectionRef);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     const textAnimationTimeline = gsap.timeline({
       defaults: { stagger: 0.2, duration: 0.3 },
-    })
+    });
 
     textAnimationTimeline.fromTo(
-      q(".text-animation"),
+      q('.text-animation'),
       {
         y: 100,
       },
@@ -24,19 +24,19 @@ export default function HeroContent() {
         y: 0,
         delay: 2.2,
       }
-    )
+    );
     textAnimationTimeline.fromTo(
-      ".bio-animation ",
+      '.bio-animation ',
       {
         scale: 0,
       },
       {
         scale: 1,
-        ease: "back",
+        ease: 'back',
         duration: 0.3,
       }
-    )
-  }, [q])
+    );
+  }, [q]);
 
   return (
     <div
@@ -53,13 +53,13 @@ export default function HeroContent() {
         <div className="text-animation text-2xl md:text-4xl font-semibold text-center">
           <span className="bg-[linear-gradient(#fff,rgba(255,255,255,.6))] inline-block text-transparent bg-clip-text">
             A
-          </span>{" "}
-          <span className="text-accentColor">Full-Stack</span>{" "}
+          </span>{' '}
+          <span className="text-accentColor">Full-Stack</span>{' '}
           <span className="bg-[linear-gradient(#000000,rgba(255,255,255,.6))] dark:bg-[linear-gradient(#fff,rgba(255,255,255,.6))] inline-block text-transparent bg-clip-text">
             Developer
           </span>
-          <br/>
-          <span className="text-accentColor">UI/UX</span>{" "}
+          <br />
+          <span className="text-accentColor">UI/UX</span>{' '}
           <span className="bg-[linear-gradient(#000000,rgba(255,255,255,.6))] dark:bg-[linear-gradient(#fff,rgba(255,255,255,.6))] inline-block text-transparent bg-clip-text">
             Designer
           </span>
@@ -67,7 +67,8 @@ export default function HeroContent() {
       </div>
 
       <div className="w-[300px] md:w-[370px] relative z-30 text-center text-sm dark:bg-[linear-gradient(#fff,rgba(255,255,255,.6))] inline-block text-black dark:text-transparent bg-clip-text">
-        My life has been an exciting journey alongside programming, and I love being part of its growth and change.
+        My life has been an exciting journey alongside programming, and I love being part of its
+        growth and change.
       </div>
 
       <div className="bio-animation dark:bg-[linear-gradient(#fff,rgba(255,255,255,.6))] inline-block text-black dark:text-transparent bg-clip-text text-md md:text-lg">
@@ -90,5 +91,5 @@ export default function HeroContent() {
         </div>
       </Link>
     </div>
-  )
+  );
 }

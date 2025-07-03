@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
-import { useSectionStore } from "@/store/section";
-import gsap from "gsap";
-import Link from "next/link";
+import { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
+import { useSectionStore } from '@/store/section';
+import gsap from 'gsap';
+import Link from 'next/link';
 
-import navLinks from "@/lib/navConfig";
-import ResumeBtn from "../ResumeBtn";
-import ThemeSwitch from "../ThemeSwitch";
-import MobileNav from "./MobileNav";
+import navLinks from '@/lib/navConfig';
+import ResumeBtn from '../ResumeBtn';
+import ThemeSwitch from '../ThemeSwitch';
+import MobileNav from './MobileNav';
 
 export default function Header() {
   const headerRef = useRef(null);
@@ -19,7 +19,7 @@ export default function Header() {
     gsap.fromTo(
       headerRef.current,
       { top: -120 },
-      { top: 0, duration: 0.7, delay: 2.2, ease: "Power0.easeNone" }
+      { top: 0, duration: 0.7, delay: 2.2, ease: 'Power0.easeNone' }
     );
   }, []);
 
@@ -36,8 +36,8 @@ export default function Header() {
             <Link href="/" className="flex items-center text-xl font-medium">
               <span
                 className={cn(
-                  "dark:text-white hover:text-accentColor cursor-pointer",
-                  section === "#project" && "dark:text-black"
+                  'dark:text-white hover:text-accentColor cursor-pointer',
+                  section === '#project' && 'dark:text-black'
                 )}
               >
                 Henry Brown
@@ -54,10 +54,7 @@ export default function Header() {
                   <Link
                     href={link.href}
                     data-active={link.href === section}
-                    className={cn(
-                      "navlink",
-                      section === "#project" && "dark:text-black"
-                    )}
+                    className={cn('navlink', section === '#project' && 'dark:text-black')}
                   >
                     {link.title}
                   </Link>
