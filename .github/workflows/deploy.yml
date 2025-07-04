@@ -50,10 +50,15 @@ jobs:
         run: |
           docker push henry094/dev_portfolio:latest
 
-      - name: Deploy to Fly.io
-        uses: superfly/flyctl-actions@master
+       - name: deploying
+        uses: appleboy/ssh-action@v0.1.8
         with:
-          version: 0.0.462
-        args: deploy --image henry094/dev_portfolio:latest
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            docker image pull henry094/dev_portfolio:latest
+            docker container stop dev_portfolio
+            docker container rm dev_portfolio
+            docker container run -d --name flask -p 80:3000 henry094/dev_portfolio
