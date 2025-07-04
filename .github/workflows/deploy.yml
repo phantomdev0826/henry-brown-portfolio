@@ -51,7 +51,7 @@ jobs:
           docker push henry094/dev_portfolio:latest
 
       - name: Deploy to Fly.io
-        uses: superfly/flyctl-actions@main
+        uses: superfly/flyctl-actions@master
         with:
           args: deploy --image henry094/dev_portfolio:latest
         env:
