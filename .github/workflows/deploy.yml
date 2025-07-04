@@ -61,4 +61,4 @@ jobs:
             docker image pull henry094/dev_portfolio:latest
             docker container stop dev_portfolio
             docker container rm dev_portfolio
-            docker container run -d --name flask -p 80:3000 henry094/dev_portfolio
+            docker container run -d --name dev_portfolio -p 80:3000 henry094/dev_portfolio
