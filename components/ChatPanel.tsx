@@ -2,13 +2,15 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { useIsSmallScreen } from '@/hooks/useIsSmallScreen';
 
 const ChatPanel = () => {
+  const isSmallScreen = useIsSmallScreen();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
       sender: 'ai',
-      text: 'Hi! I am Henry Brown&apos;s AI assistant. Ask me anything about Henry!',
+      text: "Hi! I am Henry Brown&#39;s AI assistant. Ask me anything about Henry!",
     },
   ]);
   const [input, setInput] = useState('');
@@ -21,6 +23,7 @@ const ChatPanel = () => {
       panelRef.current.scrollTop = panelRef.current.scrollHeight;
     }
   }, [messages, open]);
+
 
   const handleSend = async () => {
     if (!input.trim() || loading) return;
@@ -66,11 +69,11 @@ const ChatPanel = () => {
       </div>
 
       {/* Chat Panel */}
-      {open && (
+      {!isSmallScreen && open && window.innerWidth >= 500 && (
         <div className="fixed bottom-28 right-24 z-50 w-[340px] max-w-[90vw] h-[420px] flex flex-col rounded-xl shadow-2xl bg-gray-100 dark:bg-[#161D1F] border border-accentColor">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-accentColor bg-gray-50 dark:bg-[#1a2326] rounded-t-xl">
-            <span className="font-semibold text-base dark:text-white">Henry's AI Chat</span>
+            <span className="font-semibold text-base dark:text-white">Henry&#39;s AI Chat</span>
             <button
               onClick={() => setOpen(false)}
               className="text-xl font-bold text-gray-500 hover:text-accentColor transition-colors"
